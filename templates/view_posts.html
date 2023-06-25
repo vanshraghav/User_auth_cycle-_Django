@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .post {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: flex; /* Enable flexbox layout */
+        }
+
+        .post h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .post p {
+            margin-bottom: 10px;
+        }
+
+        .post img {
+            max-width: 200px; /* Adjust the width of the image as needed */
+            height: auto;
+            margin-top: 10px;
+            margin-right: 20px; /* Add margin to create space between image and content */
+            flex-shrink: 0; /* Prevent the image from shrinking */
+        }
+
+        .post .content {
+            flex-grow: 1; /* Allow the content to grow and fill the remaining space */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Blog</h1>
+
+    {% for post in posts %}
+        <div class="post">
+            <a style="text-decoration: none; color: black;" href="view_spec/{{ post.id }}">
+                <img src="{{ post.img.url }}" alt="Post Image">
+                <div class="content">
+                    <h2>{{ post.title }}</h2>
+                    <p><em>Posted on {{ post.date }}</em></p>
+                    <p>{{ post.summary|truncatewords:10 }}</p>
+                    <p>{{ post.content1|truncatewords:15 }}</p>
+                    <p>Category: {{ post.category }}</p>
+                </div>
+            </a>
+
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>

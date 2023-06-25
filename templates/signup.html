@@ -57,6 +57,16 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .signup-btn {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-btn a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -128,8 +138,8 @@
                  {{ error }}
                 {% endif %}
                     
-                <h3> Already Have an account</h3>
-                <div class="signin-btn">
+                <h4 class="signup-btn" > Already Have an account ?</h4>
+                <div class="signup-btn">
                     <a href="login">Sign In</a>
                 </div>
             </div>

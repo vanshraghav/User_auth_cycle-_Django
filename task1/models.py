@@ -1,17 +1,34 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
 class Info(models.Model):
-    type_of=models.CharField(max_length=100)
-    first_name=models.CharField(max_length=100)
-    last_name=models.CharField(max_length=100)
+    type_of=models.TextField(default='Hi')
+    first_name=models.TextField(default='Hi')
+    last_name=models.TextField(default='Hi')
     prof_pic = models.ImageField(upload_to='pics')
-    username =models.CharField(max_length=100)
+    username =models.TextField(default='Hi')
     email=models.EmailField(unique=True)
-    password=models.CharField(max_length=100)
-    address=models.CharField(max_length=100)
-    city=models.CharField(max_length=100)
-    state=models.CharField(max_length=100)
-    pincode=models.CharField(max_length=100)
+    password=models.TextField(default='Hi')
+    address=models.TextField(default='Hi')
+    city=models.TextField(default='Hi')
+    state=models.TextField(default='Hi')
+    pincode=models.TextField(default='Hi')
+class Post(models.Model):
+    title = models.TextField(default='Hi')
+    content1 = models.TextField(default='Hi')
+    date = models.DateTimeField(default = datetime.now, blank = True)
+    category=models.TextField(default='Hi')
+    summary=models.TextField(default='Hi')
+    img = models.ImageField(upload_to = 'pics')
+   
 
+class Draft(models.Model):
+    tag = models.TextField(default='draft')
+    title = models.TextField(default='Hi')
+    content1 = models.TextField(default='Hi')
+    date = models.DateTimeField(default = datetime.now, blank = True)
+    category=models.TextField(default='Hi')
+    summary=models.TextField(default='Hi')
+    img = models.ImageField(upload_to = 'pics')
+    

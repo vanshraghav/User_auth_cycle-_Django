@@ -47,21 +47,51 @@
         .container .logout-btn button:hover {
             background-color: #c0392b;
         }
+        .signup-btn {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-btn a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-btn a:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome, {{ user.username }}!</h1>
+
         <p><strong>User Type:</strong> {{ user.type_of }}</p>
         <p><strong>First Name:</strong> {{ user.first_name }}</p>
         <p><strong>Last Name:</strong> {{ user.last_name }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Address:</strong> {{ user.address_line1 }}, {{ user.city }}, {{ user.state }}, {{ user.pincode }}</p>
-        <div class="logout-btn">
-            
-            <a href="logout">Logout</a>
-           
+        {% if user.type_of == 'doctor' %}
+        <div class="signup-btn">
+            <a href="create">Create Post</a>
         </div>
+        
+        <div class="signup-btn">
+            <a href="all_posts">View all Posts </a>
+        </div>
+        {% endif %}
+        <div class="signup-btn">
+            <a href="view_post">View Posts</a>
+        </div>
+        <div class="signup-btn">
+            <a href="logout">Logout</a>
+        </div>
+
     </div>
 </body>
 </html>
